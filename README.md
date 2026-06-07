@@ -39,6 +39,12 @@ Search Race is a Flask-based web application that compares the execution time an
 * List Membership Check → O(n)
 * Set Membership Check → O(1)
 
+## Screenshots
+
+### Algorithm Race Demo
+
+![Search Race Demo](screenshots/search-race-demo.png)
+
 ## How It Works
 
 1. Select a comparison mode.
