@@ -43,7 +43,7 @@ Search Race is a Flask-based web application that compares the execution time an
 
 ### Algorithm Race Demo
 
-![Algorithm Race Demo](screenshots/screenshots/search-race-results.png)
+![Algorithm Race Demo](screenshots/search-race-results.png)
 
 ## How It Works
 
