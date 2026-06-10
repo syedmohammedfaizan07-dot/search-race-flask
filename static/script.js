@@ -115,4 +115,8 @@ function showAnalysis(data) {
     `The winner scales better because of its lower asymptotic complexity, so the gap grows as the dataset gets larger.`;
 }
 
+document.getElementById("reset").addEventListener("click", () => {
+    location.reload();
+});
+
 applyModeLabels();
