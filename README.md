@@ -66,6 +66,15 @@ search-race/
 │   └── script.js
 └── README.md
 
+## Project Workflow
+
+1. User selects a comparison mode.
+2. User enters dataset size.
+3. Flask backend generates data.
+4. Algorithms execute and measure performance.
+5. Results are returned to the frontend.
+6. Race animation and analysis are displayed.
+
 ## Installation
 
 ```bash
