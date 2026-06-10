@@ -38,44 +38,58 @@ function resetLanes() {
 
 $("run").addEventListener("click", async () => {
   if (running) return;
+
   running = true;
   $("run").disabled = true;
+  $("run").textContent = "⏳ RUNNING...";
+
   resetLanes();
 
   const size = parseInt($("size").value, 10);
 
-if (isNaN(size)) {
-  alert("Please enter a valid dataset size.");
-  running = false;
-  $("run").disabled = false;
-  return;
-}
+  if (isNaN(size)) {
+    alert("Please enter a valid dataset size.");
+    running = false;
+    $("run").disabled = false;
+    $("run").textContent = "▶ START RACE";
+    return;
+  }
 
-if (size < 100) {
-  alert("Dataset size must be at least 100.");
-  running = false;
-  $("run").disabled = false;
-  return;
-}
+  if (size < 100) {
+    alert("Dataset size must be at least 100.");
+    running = false;
+    $("run").disabled = false;
+    $("run").textContent = "▶ START RACE";
+    return;
+  }
 
-if (size > 200000) {
-  alert("Dataset size cannot exceed 200000.");
-  running = false;
-  $("run").disabled = false;
-  return;
-}
+  if (size > 200000) {
+    alert("Dataset size cannot exceed 200000.");
+    running = false;
+    $("run").disabled = false;
+    $("run").textContent = "▶ START RACE";
+    return;
+  }
 
   let data;
+
   try {
     const res = await fetch("/api/run", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ mode, size }),
     });
+
     data = await res.json();
   } catch (e) {
     alert("Race failed: " + e.message);
-    running = false; $("run").disabled = false;
+
+    running = false;
+    $("run").disabled = false;
+    $("run").textContent = "▶ START RACE";
+
     return;
   }
 
@@ -84,7 +98,9 @@ if (size > 200000) {
 
   running = false;
   $("run").disabled = false;
+  $("run").textContent = "▶ START RACE";
 });
+
 
 function animateRace(a, b) {
   return new Promise((resolve) => {
@@ -137,7 +153,13 @@ function showAnalysis(data) {
 }
 
 document.getElementById("reset").addEventListener("click", () => {
-    location.reload();
+  location.reload();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && !running) {
+    $("run").click();
+  }
 });
 
 applyModeLabels();
