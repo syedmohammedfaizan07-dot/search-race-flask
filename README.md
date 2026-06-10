@@ -86,6 +86,15 @@ Open:
 
 http://127.0.0.1:5001
 
+## Usage
+
+1. Launch the Flask application.
+2. Open the application in your browser.
+3. Choose a comparison mode.
+4. Enter the dataset size.
+5. Click Start Race.
+6. Analyze the results and winner.
+
 ## Learning Outcomes
 
 * Understanding algorithm efficiency
