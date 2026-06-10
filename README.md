@@ -84,6 +84,13 @@ http://127.0.0.1:5001
 * Visualizing performance differences
 * Using Flask for frontend-backend integration
 
+## Challenges Faced
+
+- Configuring Flask environment
+- Managing GitHub repositories and commits
+- Implementing algorithm visualizations
+- Comparing execution times accurately
+
 ## Future Improvements
 
 * Add more searching and sorting algorithms
