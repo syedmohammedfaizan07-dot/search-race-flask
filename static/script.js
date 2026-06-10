@@ -42,7 +42,28 @@ $("run").addEventListener("click", async () => {
   $("run").disabled = true;
   resetLanes();
 
-  const size = parseInt($("size").value, 10) || 10000;
+  const size = parseInt($("size").value, 10);
+
+if (isNaN(size)) {
+  alert("Please enter a valid dataset size.");
+  running = false;
+  $("run").disabled = false;
+  return;
+}
+
+if (size < 100) {
+  alert("Dataset size must be at least 100.");
+  running = false;
+  $("run").disabled = false;
+  return;
+}
+
+if (size > 200000) {
+  alert("Dataset size cannot exceed 200000.");
+  running = false;
+  $("run").disabled = false;
+  return;
+}
 
   let data;
   try {
