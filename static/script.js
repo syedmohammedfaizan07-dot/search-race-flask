@@ -162,4 +162,10 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+document.addEventListener("keyup", (e) => {
+  if (e.key === "Enter" && !running) {
+    document.getElementById("run").click();
+  }
+});
+
 applyModeLabels();
